@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../style';
 
-// Define the enum for border color options
-const BorderColorOptions = {
-  Yellow: "#FFDB00",
-  Purple: "#431F54",
-  Blue: "#007BFF",
-};
+const Button = ({ content, imageSrc, borderColor, down, targetRef }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-const Button = ({ content, imageSrc, borderColor }) => {
-  // Validate if the borderColor is a valid option from the enum
-  const validBorderColor = BorderColorOptions[borderColor] || BorderColorOptions.Yellow;
+  const buttonStyles = {
+    borderColor: borderColor,
+    transform: isHovered ? 'scale(1.1)' : 'scale(1)',
+    transition: 'transform 0.3s ease',
+  };
+
+  const handleButtonClick = () => {
+    if (targetRef && targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <button
       type='submit'
-      className={`flex flex-row justify-center items-center h-[70px] px-[69px] border-2 rounded-[60px] border-[${validBorderColor}]`}
+      style={buttonStyles}
+      className={`flex flex-row justify-center items-center h-[70px] px-[69px] border-2 rounded-[60px]`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleButtonClick}
     >
       <h2 className={`${styles.button} mr-5 text-gray-200`}>{content}</h2>
-      <img src={imageSrc} alt="" className="" />
+      <img src={imageSrc} alt="" className={`${down ? "arrowDown" : ""}`} />
     </button>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style';
-import { Navbar, Body, Footer, About, ParticleBackground } from './components';
+import { Navbar, Body, Footer, About, Features, Intro_vid, Goal, ParticleBackground } from './components';
 
 const App = () => {
 
@@ -10,6 +10,9 @@ const App = () => {
       <div className='flex flex-col items-center'>
         <About />
         <Body />
+        <Features/>
+        <Intro_vid />
+        <Goal />
         <Footer />
       </div>
     </div>

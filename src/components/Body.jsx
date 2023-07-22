@@ -1,11 +1,20 @@
-import React from 'react'
-import Features from './Features'
+import React, {useRef} from 'react'
+import BodyContent from './BodyContent'
 import styles from '../style'
-
+import arrowleft from '../assets/arrowleft.svg'
+import arrowleft_purple from '../assets/arrowleft_purple.svg'
+import Button from './Button'
 const Body = () => {
+  const bodyRef = useRef(null);
   return (
-    <div className='w-[100%]'>
-      <div className='flex flex-col justify-center items-center'>
+    <div className='w-[100%] flex justify-center flex-col items-center'>
+      <div className='w-[50%] flex flex-row justify-center mb-[100px]'>
+        <div className='mr-5'>
+          <Button content="Learn more" imageSrc={arrowleft} borderColor="#FFDB00" down={true} targetRef={bodyRef}/>
+        </div>
+        <Button content="Survey" imageSrc={arrowleft_purple} borderColor="#cf6cfd" down={false} />
+      </div>
+      <div className='w-[100%] flex flex-col justify-center items-center'>
         <div className='border-b-[5px] w-[90%] rounded-full border-[#FFD600] mb-10'/>
         <h1
           style={{
@@ -15,12 +24,12 @@ const Body = () => {
             color: "transparent",
           }}
           className={`${styles.heading1} text-[72px] font-medium`}
-        >
+          ref={bodyRef}>
           Why Choose Credit Ledger?
         </h1>
       </div>
       <div className='w-[100%] mt-20 flex justify-center items-center'>
-        <Features/>
+        <BodyContent/>
       </div>
     </div>
   )
