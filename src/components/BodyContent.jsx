@@ -4,9 +4,11 @@ import styles from '../style'
 import arrowleft from '../assets/arrowleft.svg'
 import arrowleft_purple from '../assets/arrowleft_purple.svg'
 import Button from './Button'
+import {Fade} from 'react-awesome-reveal'
 const BodyContent = () => {
   return (
     <div className='w-[85%] flex flex-row justify-between justify items-center'>
+        <Fade triggerOnce cascade direction='up' className='w-[1/3] flex flex-1 flex-col justify-center items-center'>
         <div className='w-[1/3] flex flex-1 flex-col justify-center items-center'>
             <img src={schoolemoji} alt="schoolemoji" className='w-[160px] mt-5'/>
             <h1
@@ -55,6 +57,7 @@ const BodyContent = () => {
                 We prioritize transparency, security, and customer satisfaction and work hard to earn and maintain your trust. You can rest assured that your financial well-being is in good hands. That's why you're here, isn't it?</p>
             <Button content="Meet Us" imageSrc={arrowleft} borderColor="#FFD600"/>
         </div>
+        </Fade>
     </div>
   )
 }
