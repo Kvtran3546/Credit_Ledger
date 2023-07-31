@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className='w-[960px] h-[700px] flex justify-center flex-col items-center mt-[100px]'>
       <Fade triggerOnce cascade direction='up' className='flex justify-center flex-col items-center'>
-        <img src={logo} alt='logo' className='w-[165px] h-[161px] border-none'/>
+        <img src={logo} alt='logo' className='w-[165px] h-[161px] border-none md:scale-[0.8]'/>
         <h1
           className={`${styles.heading1} text-[102px] bg-clip-text text-transparent mt-10`}
           style={{

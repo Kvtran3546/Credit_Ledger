@@ -20,12 +20,12 @@ const Button = ({ content, imageSrc, borderColor, down, targetRef }) => {
     <button
       type='submit'
       style={buttonStyles}
-      className={`flex flex-row justify-center items-center h-[70px] px-[69px] border-2 rounded-[60px]`}
+      className={`flex flex-row justify-center items-center h-[70px] lg:px-[69px] md:px-[50px] border-2 rounded-[60px]`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleButtonClick}
     >
-      <h2 className={`${styles.button} mr-5 text-gray-200`}>{content}</h2>
+      <h2 className={`${styles.button} mr-5 text-gray-200 md:text-[20px]`}>{content}</h2>
       <img src={imageSrc} alt="" className={`${down ? "arrowDown" : ""}`} />
     </button>
   );
